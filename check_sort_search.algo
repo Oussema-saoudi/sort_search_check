@@ -1,0 +1,44 @@
+PROCEDURE insertionSort( arr: ARRAY_OF INTEGER[];  n:INTEGER)
+VAR
+    i, key, j:INTEGER;
+BEGIN
+    
+    FOR i FROM 1 TO n-1 STEP 1  DO
+        key = arr[i];
+        j = i - 1;
+    
+        /* Move elements of arr[0..i-1], that are
+        greater than key, to one position ahead
+          of their current position */
+        WHILE (j >= 0 AND arr[j] > key) DO
+            arr[j + 1] := arr[j];
+            j := j - 1;
+        END_WHILE  
+        arr[j + 1] := key;
+    END_FOR   
+END 
+
+// A utility function to print an array of size n
+PROCEDURE printArray(arr: ARRAY_OF INTEGER[];,  n:INTEGER)
+VAR
+    i:INTEGER;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        WRITE(arr[i]);
+    END_FOR 
+END 
+/* Driver program to test insertion sort */
+ALGORITHM inser_algo
+VAR
+    arr: ARRAY_OF INTEGER[]; 
+    n,i:INTEGER
+BEGIN
+    REPEAT
+        READ(n);
+    UNTIL (n<=0)
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        read(arr[i]);
+    END_FOR
+    insertionSort(arr, n);
+    printArray(arr, n);
+END
