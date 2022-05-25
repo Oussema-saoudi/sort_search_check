@@ -1,11 +1,11 @@
-PROCEDURE insertionSort( arr: ARRAY_OF INTEGER[];  n:INTEGER)
+PROCEDURE insertionSort( arr: ARRAY_OF INTEGER[],  n:INTEGER)
 VAR
     i, key, j:INTEGER;
 BEGIN
     
     FOR i FROM 1 TO n-1 STEP 1  DO
-        key = arr[i];
-        j = i - 1;
+        key := arr[i];
+        j := i - 1;
     
         /* Move elements of arr[0..i-1], that are
         greater than key, to one position ahead
